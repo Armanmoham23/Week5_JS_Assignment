@@ -10,7 +10,7 @@ Steps:
    - `isOnline` (boolean): Whether the gamer is currently online.
 
 2. Write a function `updateOnlineStatus` that:
-   - Takes the `gamerProfile` object and a boolean `status` as arguments.
+   - Takes the ``gamerProfile`` object and a boolean `status` as arguments.
    - Updates the `isOnline` property based on the `status`.
    - Logs: "[username] is now online." or "[username] is now offline."
 
@@ -29,6 +29,40 @@ Expected Output:
 */
 
 // ✍️ Solve it here ✍️
+// sol 1
+const gamerProfile = {
+   username: "ShadowSlayer",
+   level: 5,
+   isOnline: false
+ };
+ const updateOnlineStatus=(obj, status) =>{
+    obj.isOnline = status;
+    if(status === true){
+       console.log(`${obj.username} is now online.`);
+    }else{
+      console.log(`${obj.username} is now offline.`)
+    }
+ };
+
+ updateOnlineStatus(gamerProfile, false);
+
+//  sol 2
+const gamerProfile1 = {
+   username: "ShadowSlayer",
+   level: 5,
+   isOnline: false,
+   updateOnlineStatus: function(obj, status){
+      obj.isOnline = status;
+    if(status === true){
+       console.log(`${obj.username} is now online.`);
+    }else{
+      console.log(`${obj.username} is now offline.`)
+    }
+   }
+ };
+
+ gamerProfile1.updateOnlineStatus(gamerProfile1);
+
 
 
 
@@ -63,6 +97,22 @@ Expected Output:
 */
 
 // ✍️ Solve it here ✍️
+const dress = {
+   name: "Evening Gown",
+   size: "M",
+   inStock: false,
+   checkAvailability: function(obj){
+      if(obj.inStock){
+         console.log(`${obj.name} is available in size ${obj.size}.`);
+      }else{
+         console.log(`${obj.name} is out of stock.`);
+      }
+      
+   }
+ };
+ dress.checkAvailability(dress);
+
+
 
 
 
@@ -104,3 +154,43 @@ Features:
 */
 
 // ✍️ Solve it here ✍️
+
+// const supercar = {
+//    model: "Ferrari SF90",
+//    price: 500000,
+//    features: {
+//      color: "Red"
+//    },
+//    addFeature: function(obj, name){
+//       obj.features[name] = true;
+//       console.log(`${name} has been added to ${obj.model}.`);
+//    }
+//  };
+//  supercar.addFeature(supercar, "sun roof");
+//  supercar.addFeature(supercar, "turbo");
+
+//  console.log(`features of ${supercar.model}`);
+//  for(let feature in supercar.features){
+//    console.log(`${feature}: ${supercar.features[feature]}`);
+//  }
+
+const supercar = {
+   model: "Ferrari SF90",
+   price: 500000,
+   features: {
+     color: "Red"
+   }
+ };
+
+ const addFeature =(obj, featureName)=>{
+   obj.features[featureName] = true;
+   console.log(`${featureName} has been added to ${obj.model}.`);
+ }
+ addFeature(supercar, "blue");
+ addFeature(supercar, "turbo");
+ addFeature(supercar, "geedi");
+
+   console.log(`features of ${supercar.model}`);
+ for(let feature in supercar.features){
+   console.log(`${feature}: ${supercar.features[feature]}`);
+ }

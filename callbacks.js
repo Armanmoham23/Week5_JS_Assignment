@@ -17,12 +17,28 @@ Expected Output:
 */
 
 // ✍️ Solve it here ✍️
+//sole 1 
+const sendMessage1 =((userName, cb)=>{
+  cb(userName);
+});
+const sayHello1 =(userName)=>{
+  console.log("Welcome " + userName);
+}
+sendMessage1("Amina", sayHello1);
 
+//solve 2 
+const sendMessage =((userName)=>{
+  const sayHello =()=>{
+    console.log("Welcome " + userName);
+  };
+  sayHello();
+});
+sendMessage("Abdalla");
 
 
 
 /*
-Task 2: Temperature Checker 🌡️🌡️🌡️🌡️
+Task 2: `Temperature Checker` 🌡️🌡️🌡️🌡️
 
 
 You are creating a temperature monitoring system. Write a function called `checkTemperature` that:
@@ -48,7 +64,35 @@ Expected Output:
 
 // ✍️ Solve it here ✍️
 
+// solve1
+const checkTemperature =(tem, cb) =>{
+ cb(tem)
+}
+const temEvaluator=(tem)=>{
+  if(tem > 30){
+    console.log(`${tem}°C is Hot`);
+  }else if(tem >= 15 && tem <= 30 ){
+    console.log(`${tem}°C is Warm`);
+  }else{
+    console.log(`${tem}°C is Cold`);
+  }
+}
+checkTemperature(11, temEvaluator)
 
+// solve 2
+const checkTemperature1 =(tem) =>{
+  const temEvaluator=()=>{
+    if(tem > 30){
+      console.log(`${tem}°C is Hot`);
+    }else if(tem >= 15 && tem <= 30 ){
+      console.log(`${tem}°C is Warm`);
+    }else{
+      console.log(`${tem}°C is Cold`);
+    }
+  }
+  temEvaluator()
+ }
+ checkTemperature1(120);
 
 
 /*
@@ -73,3 +117,33 @@ Expected Output:
 */
 
 // ✍️ Solve it here ✍️
+// solve 1
+const evaluateAnswer = (Question, correctAnswer, cb) =>{
+  userAnswer = prompt(Question);
+  cb(userAnswer, correctAnswer);
+}
+const checkAnswer = (userAnswer, correctAnswer) =>{
+ if(userAnswer === correctAnswer){
+   console.log("Correct!")
+ }else{
+  console.log("Incorrect. The correct answer is! " + correctAnswer );
+ }
+}
+evaluateAnswer("What is capital of USA?", "washington", checkAnswer);
+evaluateAnswer("What is 2 + 5?", "7", checkAnswer);
+
+// solve 2
+const evaluateAnswer1 = (Question, correctAnswer) =>{
+  userAnswer = prompt(Question);
+  const checkAnswer = () =>{
+    if(userAnswer === correctAnswer){
+      console.log("Correct!")
+    }else{
+     console.log("Incorrect. The correct answer is! " + correctAnswer );
+    }
+   }
+   checkAnswer();
+}
+evaluateAnswer1("What is capital of france?", "paris");
+evaluateAnswer1("What is 5 + 5?", "10");
+
